@@ -43,7 +43,7 @@ gym: # run rl env
 	docker compose run --rm freqtrade \
 		python /freqtrade/user_data/freqgym.py
 
-hyperopt: # run hyper opt
+hyperopt: data # run hyper opt
 	docker compose run --rm freqtrade \
 		freqtrade hyperopt --config test.json --hyperopt-loss $(LOSS) --spaces $(SPACES) --strategy $(STRATEGY) -e $(EPOCHS) --timerange=$(TIMERANGE) --timeframe=$(TIMEFRAME) --random-state 42 -j -1
 

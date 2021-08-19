@@ -26,14 +26,13 @@ list-strats: # list strategies
 	@echo $(STRATEGIES)
 
 data: # download data
-	docker compose run --rm freqtrade \
-		freqtrade download-data --config test.json  --timerange $(TIMERANGE)  -t $(TIMEFRAME)
+	@docker compose run --rm freqtrade \
+		freqtrade download-data --config test.json  --timerange $(TIMERANGE)  -t $(TIMEFRAME)\
 
-test: # run backtest
-	docker compose run --rm freqtrade \
+test: data # run backtest
+	@docker compose run --rm freqtrade \
 		freqtrade backtesting --config test.json --strategy-list $(STRATEGY) --timeframe $(TIMEFRAME) --timerange=$(TIMERANGE) \
-		--export=trades
-	osascript -e 'display notification "Done"'
+		--export=trades\
 
 test-all: data # run backtest on all strats
 	docker compose run --rm freqtrade \

@@ -1,3 +1,5 @@
+*UNMAINTAINED - REPO MOVED TO https://github.com/p-zombie/freqtrade*
+
 Creating the app
 ```shell
 git clone https://github.com/joaorafaelm/freqtrade.git && cd freqtrade
